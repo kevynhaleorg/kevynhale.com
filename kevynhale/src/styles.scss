@@ -36,6 +36,7 @@ h4 {
 .circle {
   padding: 5px;
   box-shadow: $box-shadow;
+  box-sizing: border-box;
   height: auto;
   width: auto;
   background-color: $white;
