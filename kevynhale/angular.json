@@ -6,6 +6,7 @@
     "kevynhale": {
       "root": "",
       "sourceRoot": "src",
+      
       "projectType": "application",
       "prefix": "app",
       "schematics": {
@@ -17,6 +18,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./scss"
+              ]
+            },
             "outputPath": "dist/kevynhale",
             "index": "src/index.html",
             "main": "src/main.ts",

@@ -1,0 +1,23 @@
+// Import fonts
+@import url(https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700|Exo+2:200i,300);
+
+$header-font: 'Exo 2', sans-serif;
+$body-font: 'Quicksand', sans-serif;
+
+
+$white: white;
+$background: #EFEFEF;
+$theme-accent: #3B8FFF;
+
+$font-dark: #323232;
+$font-light: #565656;
+$font-lightest: #7b7b7b;
+
+$box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+
+$margin: 30px;
+
+@media screen and (max-width: 600px) {
+  $margin: 20px;
+}
+  
