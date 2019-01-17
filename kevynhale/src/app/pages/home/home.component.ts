@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatomoTracker } from 'ngx-matomo';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private matomoTracker: MatomoTracker) { }
 
   title = "Kevyn Hale - Web Developer"
 
@@ -19,6 +20,10 @@ export class HomeComponent implements OnInit {
   info2 = "I work with these and many more technologies."
 
   ngOnInit() {
+  }
+
+  mail() {
+    this.matomoTracker.trackEvent("contact", "click")
   }
 
 }
