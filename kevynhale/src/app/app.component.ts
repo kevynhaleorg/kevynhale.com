@@ -8,7 +8,7 @@ import { MatomoInjector } from 'ngx-matomo';
 })
 export class AppComponent {
   constructor(private matomoInjector: MatomoInjector) {
-    this.matomoInjector.init('analytics.kevynhale.com/piwik.php', 3)
+    this.matomoInjector.init('//analytics.kevynhale.com/piwik.php', 3)
   }
   title = 'kevynhale';
 }
