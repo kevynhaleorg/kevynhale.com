@@ -14,12 +14,12 @@
       {{content}}
     </article>
     <div class="image-row sharing">
-      <a href="https://twitter.com/kevynhale" target="_blank"><img src="assets/images/twitter.png"></a>
-      <a href="https://github.com/kevynhale" target="_blank"><img src="assets/images/github.png"></a>
-      <a href="https://www.linkedin.com/in/kevyn-hale-4285698a/" target="_blank"><img src="assets/images/linkedin.png"></a>
-      <a href="https://www.upwork.com/o/profiles/users/_~01d0ed8c1b9f07ec4f/  " target="_blank"><img src="assets/images/upwork.png"></a>
+      <a href="https://twitter.com/kevynhale" target="_blank" (click)="trackClick('twitter')"><img src="assets/images/twitter.png"></a>
+      <a href="https://github.com/kevynhale" target="_blank" (click)="trackClick('github')"><img src="assets/images/github.png"></a>
+      <a href="https://www.linkedin.com/in/kevyn-hale-4285698a/" target="_blank" (click)="trackClick('linkedin')"><img src="assets/images/linkedin.png"></a>
+      <a href="https://www.upwork.com/o/profiles/users/_~01d0ed8c1b9f07ec4f/  " target="_blank" (click)="trackClick('upwork')"><img src="assets/images/upwork.png"></a>
     </div>
-    <A HREF="mailto:kevyn@kevynhale.com" class="button" (click)="mail()">
+    <A HREF="mailto:kevyn@kevynhale.com" class="button" (click)="trackClick('email')">
         <span>{{buttontext}}</span>
     </A>
   </div>
