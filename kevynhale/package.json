@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "deploy:prod" : "ng build --prod; rsync -r ./dist/kevynhale/* root@104.131.157.182:/var/www/production/kevynhale/kevynhale/ --delete",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

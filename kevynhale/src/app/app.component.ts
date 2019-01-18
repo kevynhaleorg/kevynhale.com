@@ -7,8 +7,7 @@ import { MatomoInjector } from 'ngx-matomo';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private matomoInjector: MatomoInjector) {
-    this.matomoInjector.init('//analytics.kevynhale.com/piwik.php', 3)
+  constructor() {
   }
   title = 'kevynhale';
 }
