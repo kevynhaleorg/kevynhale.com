@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  mail() {
-    this.matomoTracker.trackEvent("contact", "click")
+  trackClick(name: string) {
+    this.matomoTracker.trackEvent("button", "click", name)
   }
 
 }
