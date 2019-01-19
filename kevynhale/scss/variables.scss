@@ -22,4 +22,9 @@ $margin: 30px;
 @media screen and (max-width: 600px) {
   $margin: 15px;
 }
+
+@mixin stretch {
+  width: 100%;
+  display: flex;
+}
   

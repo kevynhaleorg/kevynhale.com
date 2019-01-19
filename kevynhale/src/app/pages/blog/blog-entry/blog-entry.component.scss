@@ -1,0 +1,6 @@
+@import 'variables';
+
+:host {
+  @include stretch;
+  flex-direction: row;
+}

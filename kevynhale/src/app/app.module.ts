@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogSingleComponent } from './pages/blog/blog-single/blog-single.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { BlogEntryComponent } from './pages/blog/blog-entry/blog-entry.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     NavbarComponent,
     BlogComponent,
     BlogSingleComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    BlogEntryComponent
   ],
   imports: [
     BrowserModule,
