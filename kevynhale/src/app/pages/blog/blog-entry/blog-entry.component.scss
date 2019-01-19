@@ -2,5 +2,49 @@
 
 :host {
   @include stretch;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content:left;
+  text-align:left;
+  margin-bottom: $margin;
+}
+
+.date {
+  font-size:.8rem;
+  font-weight: 300;
+}
+
+.title {
+  font-family: $header-font;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.body {
+  display: flex;
+  flex-direction:row;
+
+  img {
+    height: 125px;
+    width: 125px;
+    max-width: 125px;
+    min-width: 125px;
+    margin-right: 15px;
+  }
+
+  .summary {
+    display: flex;
+    flex-direction: column;
+
+    article {
+      font-size: 1.2rem;
+      margin-bottom:15px;
+    }
+
+    a {
+      &:hover {
+        color: $font-dark;
+        text-decoration: underline;
+      }
+    }
+  }
 }

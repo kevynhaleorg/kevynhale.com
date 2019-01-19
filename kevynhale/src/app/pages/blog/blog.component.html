@@ -2,3 +2,4 @@
 {{blogHeaderText}}
 </div>
 <app-search-bar></app-search-bar>
+<app-blog-entry  *ngFor="let entry of entries" [entry]="entry"></app-blog-entry>

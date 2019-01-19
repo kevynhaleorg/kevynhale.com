@@ -20,12 +20,11 @@ const routes: Routes = [
     path:'blog',
     component: BlogComponent,
     data: { state: 'blog'},
-    children: [
-      {
-        path: ':id',
-        component: BlogSingleComponent
-      }
-    ]
+  },
+  {
+    path: 'blog/:id',
+    component: BlogSingleComponent,
+    data: {state: 'blogSingle'}
   }
 ];
 

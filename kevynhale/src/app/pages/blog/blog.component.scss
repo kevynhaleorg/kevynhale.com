@@ -15,3 +15,7 @@
   font-size: 1.3rem;
   line-height: 2.2rem;
 }
+
+app-search-bar {
+  margin-bottom:calc(#{$margin} + 10px);
+}

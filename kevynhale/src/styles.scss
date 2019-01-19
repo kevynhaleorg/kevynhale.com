@@ -13,7 +13,11 @@ body {
   font-weight: 300;
 }
 
-A {text-decoration: none;}
+a {
+  color: $font-light;
+  font-weight: 300;
+  text-decoration: none; /* no underline */
+}
 
 h1, h2, h3, h4 {
   font-family: $header-font;
