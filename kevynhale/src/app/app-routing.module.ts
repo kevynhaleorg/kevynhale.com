@@ -12,11 +12,14 @@ const routes: Routes = [
   },
   {
     path:'home',
-    component: HomeComponent
+    component: HomeComponent,
+    data: { state: 'home'}
+    
   },
   {
     path:'blog',
     component: BlogComponent,
+    data: { state: 'blog'},
     children: [
       {
         path: ':id',
