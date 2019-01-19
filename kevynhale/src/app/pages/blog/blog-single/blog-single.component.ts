@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogEntry } from '../models';
+import { IBlogEntry } from '../../../redux';
 
 @Component({
   selector: 'app-blog-single',
@@ -10,7 +10,7 @@ export class BlogSingleComponent implements OnInit {
 
   constructor() { }
 
-  entry: BlogEntry = {
+  entry: IBlogEntry = {
     id: '1',
     title: "The First Blog Post",
     date: "January 17th, 2019",

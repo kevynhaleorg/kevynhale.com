@@ -14,6 +14,7 @@ import { BlogEntryComponent } from './pages/blog/blog-entry/blog-entry.component
 import { DisqusModule } from "ngx-disqus";
 import { AppReduxModule } from './redux';
 import { NgReduxModule } from '@angular-redux/store';
+import { BlogService } from './services/blog/blog.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { NgReduxModule } from '@angular-redux/store';
     MatomoModule,
     DisqusModule.forRoot('disqus_shortname')
   ],
-  providers: [],
+  providers: [ BlogService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

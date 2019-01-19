@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogEntry } from './models';
+import { IBlogEntry, BlogActions } from '../../redux';
 
 @Component({
   selector: 'app-blog',
@@ -10,9 +10,9 @@ export class BlogComponent implements OnInit {
 
   blogHeaderText = "Welcome to my blog where I dive into all things related to building web applications - design, devops and development!"
 
-  constructor() { }
+  constructor(private _actions: BlogActions) { }
 
-  entries: BlogEntry[] = [{
+  entries: IBlogEntry[] = [{
     id: '1',
     title: "The First Blog Post",
     date: "January 17th, 2019",
@@ -27,6 +27,10 @@ export class BlogComponent implements OnInit {
     imageSummaryUrl: "assets/images/blog1.png"
   }]
 
+  setSearchValue(value: string) {
+    this._actions.setListSearch(value)
+  }
+ 
   ngOnInit() {
   }
 

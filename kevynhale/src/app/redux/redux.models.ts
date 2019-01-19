@@ -1,2 +1,5 @@
+import { IBlogState } from './blog';
 
-export interface IAppState { /* ... */ };
+export interface IAppState { 
+  blog?: IBlogState
+};
