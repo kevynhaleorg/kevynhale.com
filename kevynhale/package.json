@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-redux/store": "^9.0.0",
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",
     "@angular/compiler": "~7.2.0",
@@ -24,6 +25,8 @@
     "ngx-disqus": "^2.4.3",
     "ngx-matomo": "^0.1.2",
     "normalize.css": "^8.0.1",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"

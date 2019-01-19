@@ -12,6 +12,8 @@ import { BlogSingleComponent } from './pages/blog/blog-single/blog-single.compon
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { BlogEntryComponent } from './pages/blog/blog-entry/blog-entry.component';
 import { DisqusModule } from "ngx-disqus";
+import { AppReduxModule } from './redux';
+import { NgReduxModule } from '@angular-redux/store';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { DisqusModule } from "ngx-disqus";
     BlogEntryComponent
   ],
   imports: [
+    NgReduxModule,
+    AppReduxModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
