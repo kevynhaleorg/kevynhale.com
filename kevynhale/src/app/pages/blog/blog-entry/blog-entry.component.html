@@ -1,9 +1,9 @@
 <div class="date">{{entry?.date}}</div>
 <div class="title">{{entry?.title}}</div>
 <div class="body">
-  <img src="{{entry?.imageSummaryUrl}}">
+  <img src="{{entry?.imageUrl}}">
   <div class="summary">
-    <article>{{entry?.summary}}</article>
+    <article [innerHTML]="entry?.summary" class='article'></article>
     <a routerLink="/blog/{{entry?.id}}" class="read-more">Read more →</a>
   </div>
 </div>

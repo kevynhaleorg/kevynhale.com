@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IBlogEntry, BlogActions } from '../../redux';
+import { select } from '@angular-redux/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-blog',
@@ -12,26 +14,15 @@ export class BlogComponent implements OnInit {
 
   constructor(private _actions: BlogActions) { }
 
-  entries: IBlogEntry[] = [{
-    id: '1',
-    title: "The First Blog Post",
-    date: "January 17th, 2019",
-    summary: this.blogHeaderText,
-    imageSummaryUrl: "assets/images/blog1.png"
-  },
-  {
-    id: '1',
-    title: "The First Blog Post",
-    date: "January 17th, 2019",
-    summary: this.blogHeaderText,
-    imageSummaryUrl: "assets/images/blog1.png"
-  }]
+  @select(['blog', 'list', 'entries']) entries$: Observable<IBlogEntry>
+
 
   setSearchValue(value: string) {
     this._actions.setListSearch(value)
   }
  
   ngOnInit() {
+    this._actions.fetchList()
   }
 
 }

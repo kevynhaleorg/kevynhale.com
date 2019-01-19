@@ -48,3 +48,9 @@
     }
   }
 }
+
+:host ::ng-deep .article { 
+  p {
+    margin:0px;
+  }
+}

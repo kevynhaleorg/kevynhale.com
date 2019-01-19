@@ -15,6 +15,7 @@ import { DisqusModule } from "ngx-disqus";
 import { AppReduxModule } from './redux';
 import { NgReduxModule } from '@angular-redux/store';
 import { BlogService } from './services/blog/blog.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BlogService } from './services/blog/blog.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     MatomoModule,
+    HttpModule,
     DisqusModule.forRoot('disqus_shortname')
   ],
   providers: [ BlogService ],

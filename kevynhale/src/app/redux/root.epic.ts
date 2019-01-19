@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
+import { BlogEpic } from './blog';
 
 @Injectable()
 export class RootEpic {
 
   // Inject new epics here.
-  constructor() {}
+  constructor(private blogEpic: BlogEpic) {}
 
-  epicList = []
+  epicList = [
+    this.blogEpic.getEpics()
+  ]
 
   getEpicList () {
     return this.mergeEpics( this.epicList )

@@ -15,7 +15,7 @@ export class BlogSingleComponent implements OnInit {
     title: "The First Blog Post",
     date: "January 17th, 2019",
     summary: '',
-    imageBodyUrl: "assets/images/blog1-body.png",
+    imageUrl: "assets/images/blog1-body.png",
     body: body
   }
 

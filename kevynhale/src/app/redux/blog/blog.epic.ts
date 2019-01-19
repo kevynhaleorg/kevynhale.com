@@ -21,7 +21,11 @@ export class BlogEpic {
   fetchList(action$: ActionsObservable<any>, store: Store<IAppState>) {
     return action$.ofType(BlogActions.LIST_FETCH).pipe(
       mergeMap(() => this._service.fetchList({search: store.getState().blog.list.searchValue}) ),
-      map((response) => this._actions.fetchListResponse(response)),
+      map((response) => {
+        const results:any[] = JSON.parse(response._body)
+        console.log(results)
+        return this._actions.fetchListResponse(results.map((result) => ({id: result.id, date: result.date, title: result.title.rendered, summary: result.excerpt.rendered, body: result.content.rendered, imageUrl: result._embedded['wp:featuredmedia'][0].source_url })))
+      }),
       catchError( (error: Error ) => of(this._actions.fetchListError(error)))
     )
   }

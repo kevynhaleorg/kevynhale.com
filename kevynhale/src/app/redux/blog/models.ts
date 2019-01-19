@@ -17,8 +17,7 @@ export interface IBlogState {
 
 export interface IBlogEntry {
   id: string;
-  imageSummaryUrl?: string;
-  imageBodyUrl?: string;
+  imageUrl?: string;
   date?: string;
   title?: string;
   summary?: string;
