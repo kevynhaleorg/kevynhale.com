@@ -12,12 +12,14 @@ $theme-accent: #3B8FFF;
 $font-dark: #323232;
 $font-light: #565656;
 $font-lightest: #7b7b7b;
+$underline: #D8D8D8;
+$light-bkg: #F7F7F7;
 
 $box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
 
 $margin: 30px;
 
 @media screen and (max-width: 600px) {
-  $margin: 20px;
+  $margin: 15px;
 }
   

@@ -1,0 +1,17 @@
+@import 'variables';
+
+
+:host {
+  display: flex;
+  flex-direction:column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.opening {
+  text-align: left;
+  margin-bottom: $margin;
+  font-size: 1.3rem;
+  line-height: 2.2rem;
+}
