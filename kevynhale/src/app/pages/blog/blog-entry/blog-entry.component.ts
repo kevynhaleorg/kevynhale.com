@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BlogEntry } from './models';
+import { BlogEntry } from '../models';
 
 @Component({
   selector: 'app-blog-entry',
@@ -11,8 +11,5 @@ export class BlogEntryComponent {
   constructor() { }
 
   @Input() entry: BlogEntry
-
-  ngOnInit() {
-  }
 
 }

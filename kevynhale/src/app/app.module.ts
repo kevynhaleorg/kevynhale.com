@@ -11,6 +11,7 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { BlogSingleComponent } from './pages/blog/blog-single/blog-single.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { BlogEntryComponent } from './pages/blog/blog-entry/blog-entry.component';
+import { DisqusModule } from "ngx-disqus";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BlogEntryComponent } from './pages/blog/blog-entry/blog-entry.component
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MatomoModule
+    MatomoModule,
+    DisqusModule.forRoot('disqus_shortname')
   ],
   providers: [],
   bootstrap: [AppComponent]

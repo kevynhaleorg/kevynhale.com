@@ -1,3 +1,5 @@
-<p>
-  blog-single works!
-</p>
+<div class="date">{{entry?.date}}</div>
+<div class="title">{{entry?.title}}</div>
+<img src="{{entry?.imageBodyUrl}}">
+<div [innerHTML]="entry?.body" class="body"></div>
+<disqus [identifier]="entry?.id"></disqus>

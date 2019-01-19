@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogEntry } from './blog-entry/models';
+import { BlogEntry } from './models';
 
 @Component({
   selector: 'app-blog',
@@ -17,14 +17,14 @@ export class BlogComponent implements OnInit {
     title: "The First Blog Post",
     date: "January 17th, 2019",
     summary: this.blogHeaderText,
-    imageUrl: "assets/images/blog1.png"
+    imageSummaryUrl: "assets/images/blog1.png"
   },
   {
     id: '1',
     title: "The First Blog Post",
     date: "January 17th, 2019",
     summary: this.blogHeaderText,
-    imageUrl: "assets/images/blog1.png"
+    imageSummaryUrl: "assets/images/blog1.png"
   }]
 
   ngOnInit() {

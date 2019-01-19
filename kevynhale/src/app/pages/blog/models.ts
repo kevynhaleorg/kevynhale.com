@@ -2,8 +2,10 @@
 
 export interface BlogEntry {
   id: string;
-  imageUrl: string;
+  imageSummaryUrl?: string;
+  imageBodyUrl?: string;
   date: string;
   title: string;
   summary: string;
+  body?: string;
 }

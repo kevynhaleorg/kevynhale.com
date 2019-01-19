@@ -26,8 +26,18 @@ export const routerTransition = trigger('routerTransition', [
       query(':enter, :leave', style({ opacity: 0 })
       , { optional: true }),
       query(':enter', [
-        style({ transform: 'translateY(-100%)' }),
-        animate('0.5s ease-in-out', style({ transform: 'translateY(0%)', opacity:1 }))
+        style({ transform: 'translateY(100%)' }),
+        animate('.5s ease-in-out', style({ transform: 'translateY(0%)', opacity:1 }))
+      ], { optional: true }),
+    ])
+  ]),
+  transition('blogSingle => blog', [
+    group([
+      query(':enter, :leave', style({ opacity: 0 })
+      , { optional: true }),
+      query(':enter', [
+        style({  }),
+        animate('0.5s ease-in-out', style({ opacity:1 }))
       ], { optional: true }),
     ])
   ])
