@@ -13,13 +13,17 @@ export class BlogService {
 
   fetchList({ search }): Observable<any> {
     const searchParam = search !== '' || search !== null ? `search=${search}` : ''
-    let url =  this._wpBase + `posts?${searchParam}&_embed`
+    let url = `${this._wpBase}posts?${searchParam}&_embed`
 		let headers    = new Headers({'Content-Type': 'application/json'})
 		let options    = new RequestOptions({ headers: headers })			
 		return this.http.get(url, options)
   }
 
   fetchSingle(id: string): Observable<any> {
-    return empty()
+    let url = `${this._wpBase}posts/${id}?&_embed`
+    let headers    = new Headers({'Content-Type': 'application/json'})
+		let options    = new RequestOptions({ headers: headers })			
+		return this.http.get(url, options)
   }
+
 }

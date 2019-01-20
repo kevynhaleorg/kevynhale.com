@@ -47,8 +47,8 @@ export class BlogActions {
     return { type: BlogActions.SINGLE_FETCH }
   }
 
-  fetchSingleResponse( entries: IBlogEntry[] ) {
-    return { type: BlogActions.SINGLE_FETCH_RESPONSE, payload: { entries } }
+  fetchSingleResponse( entry: IBlogEntry ) {
+    return { type: BlogActions.SINGLE_FETCH_RESPONSE, payload: { entry } }
   }
 
   fetchSingleError( error: Error ) {

@@ -18,6 +18,8 @@ export class BlogEpic {
     return [
       createEpicMiddleware( this.fetchList.bind( this ) ),
       createEpicMiddleware( this.setListSearch.bind( this ) ),
+      createEpicMiddleware( this.setSingleId.bind( this ) ),
+      createEpicMiddleware( this.fetchSingle.bind( this ) ),
     ]
   }
 
@@ -33,8 +35,39 @@ export class BlogEpic {
       mergeMap(() => this._service.fetchList({search: store.getState().blog.list.searchValue}) ),
       map((response) => {
         const results:any[] = JSON.parse(response._body)
-        console.log(results)
-        return this._actions.fetchListResponse(results.map((result) => ({id: result.id, date: result.date, title: result.title.rendered, summary: result.excerpt.rendered, body: result.content.rendered, imageUrl: result._embedded['wp:featuredmedia'][0].source_url })))
+        return this._actions.fetchListResponse(
+          results.map((result) => ({
+            id: result.id,
+            date: result.date,
+            title: result.title.rendered,
+            summary: result.excerpt.rendered,
+            body: result.content.rendered,
+            imageUrl: result._embedded['wp:featuredmedia'][0].source_url
+          })))
+      }),
+      catchError( (error: Error ) => of(this._actions.fetchListError(error)))
+    )
+  }
+
+  setSingleId(action$: ActionsObservable<any>, store: Store<IAppState>) {
+    return action$.ofType(BlogActions.SINGLE_SET_ID).pipe(
+      map(() => this._actions.fetchSingle())
+    )
+  }
+
+  fetchSingle(action$: ActionsObservable<any>, store: Store<IAppState>) {
+    return action$.ofType(BlogActions.SINGLE_FETCH).pipe(
+      mergeMap(() => this._service.fetchSingle(store.getState().blog.selected.id) ),
+      map((response) => {
+        const result = JSON.parse(response._body)
+        return this._actions.fetchSingleResponse({
+          id: result.id,
+          date: result.date,
+          title: result.title.rendered,
+          summary: result.excerpt.rendered,
+          body: result.content.rendered,
+          imageUrl: result._embedded['wp:featuredmedia'][0].source_url
+        })
       }),
       catchError( (error: Error ) => of(this._actions.fetchListError(error)))
     )
