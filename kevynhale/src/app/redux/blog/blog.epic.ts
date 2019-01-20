@@ -4,16 +4,17 @@ import { BlogService } from '../../services';
 import { Store } from 'redux';
 import { IAppState } from '../redux.models';
 import { BlogActions } from './blog.actions';
-import { mergeMap, map, catchError, debounceTime } from 'rxjs/operators'
+import { mergeMap, map, catchError, debounceTime, tap } from 'rxjs/operators'
 import { of } from 'rxjs';
 import { IBlogEntry } from './models';
 import * as format from 'date-fns/format'
+import { MatomoTracker } from 'ngx-matomo';
 
 
 
 @Injectable()
 export class BlogEpic {
-  constructor ( private _actions: BlogActions, private _service: BlogService ) {}
+  constructor ( private _actions: BlogActions, private _service: BlogService, private matomoTracker: MatomoTracker ) {}
 
   setListSearchDebounce = 1000
 
@@ -29,6 +30,7 @@ export class BlogEpic {
   setListSearch(action$: ActionsObservable<any>, store: Store<IAppState>) {
     return action$.ofType(BlogActions.LIST_SET_SEARCH).pipe(
       debounceTime(this.setListSearchDebounce),
+      tap(({payload}) => this.matomoTracker.trackEvent('blog', 'search', payload.string)),
       map(() => this._actions.fetchListInternal())
     )
   }
