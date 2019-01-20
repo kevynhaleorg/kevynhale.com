@@ -4,7 +4,7 @@ import { BlogService } from '../../services';
 import { Store } from 'redux';
 import { IAppState } from '../redux.models';
 import { BlogActions } from './blog.actions';
-import { mergeMap, map, catchError } from 'rxjs/operators'
+import { mergeMap, map, catchError, debounceTime } from 'rxjs/operators'
 import { of } from 'rxjs';
 
 
@@ -12,10 +12,20 @@ import { of } from 'rxjs';
 export class BlogEpic {
   constructor ( private _actions: BlogActions, private _service: BlogService ) {}
 
+  setListSearchDebounce = 1000
+
   getEpics () {
     return [
       createEpicMiddleware( this.fetchList.bind( this ) ),
+      createEpicMiddleware( this.setListSearch.bind( this ) ),
     ]
+  }
+
+  setListSearch(action$: ActionsObservable<any>, store: Store<IAppState>) {
+    return action$.ofType(BlogActions.LIST_SET_SEARCH).pipe(
+      debounceTime(this.setListSearchDebounce),
+      map(() => this._actions.fetchListInternal())
+    )
   }
 
   fetchList(action$: ActionsObservable<any>, store: Store<IAppState>) {

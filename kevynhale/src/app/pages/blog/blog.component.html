@@ -2,4 +2,21 @@
 {{blogHeaderText}}
 </div>
 <app-search-bar (inputChange)="setSearchValue($event)"></app-search-bar>
-<app-blog-entry  *ngFor="let entry of (entries$ | async)" [entry]="entry"></app-blog-entry>
+
+<!-- Loader -->
+<ng-container #loader *ngIf="(loading$ | async); else results">
+
+</ng-container>
+
+<ng-template #results>
+  <!-- Begin results if exist -->
+  <ng-container *ngIf="(entries$ | async)?.length > 0; else noresults">
+    <app-blog-entry  *ngFor="let entry of (entries$ | async)" [entry]="entry"></app-blog-entry>
+  </ng-container>
+
+  <!-- Text if no result -->
+  <ng-template #noresults>
+      <div class="no-results">There were no blog entries found with the search string "{{(search$ | async)}}".</div>
+  </ng-template>
+  
+</ng-template>

@@ -15,6 +15,8 @@ export class BlogComponent implements OnInit {
   constructor(private _actions: BlogActions) { }
 
   @select(['blog', 'list', 'entries']) entries$: Observable<IBlogEntry>
+  @select(['blog', 'list', 'searchValue']) search$: Observable<string>
+  @select(['blog', 'list', 'loading']) loading$: Observable<boolean>
 
 
   setSearchValue(value: string) {

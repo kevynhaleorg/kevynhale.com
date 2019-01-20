@@ -12,7 +12,8 @@ export class BlogService {
   constructor(private http: Http) { }
 
   fetchList({ search }): Observable<any> {
-    let url =  this._wpBase + `posts?${search}&_embed`
+    const searchParam = search !== '' || search !== null ? `search=${search}` : ''
+    let url =  this._wpBase + `posts?${searchParam}&_embed`
 		let headers    = new Headers({'Content-Type': 'application/json'})
 		let options    = new RequestOptions({ headers: headers })			
 		return this.http.get(url, options)

@@ -27,7 +27,8 @@ export function blogReducer (state: IBlogState = BLOG_INITIAL_STATE, action: any
         ...state,
         list: {
           ...state.list,
-          searchValue: action.payload.search
+          searchValue: action.payload.search,
+          loading: true
         }
       }
     case BlogActions.LIST_FETCH:

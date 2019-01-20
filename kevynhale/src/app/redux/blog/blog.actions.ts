@@ -23,6 +23,10 @@ export class BlogActions {
   
   @dispatch()
   fetchList() {
+    return this.fetchListInternal()
+  }
+
+  fetchListInternal() {
     return { type: BlogActions.LIST_FETCH }
   }
 
