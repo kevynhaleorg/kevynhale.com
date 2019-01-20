@@ -13,6 +13,8 @@ export class SearchBarComponent {
 
   @Input() placeholder = "Search posts..."
 
+  @Input() value = ''
+
   @Output() inputChange: EventEmitter<string> = new EventEmitter<string>()
 
   @HostListener('click', ['$event'])

@@ -16,6 +16,7 @@ import { AppReduxModule } from './redux';
 import { NgReduxModule } from '@angular-redux/store';
 import { BlogService } from './services/blog/blog.service';
 import { HttpModule } from '@angular/http';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpModule } from '@angular/http';
     BlogComponent,
     BlogSingleComponent,
     SearchBarComponent,
-    BlogEntryComponent
+    BlogEntryComponent,
+    LoaderComponent
   ],
   imports: [
     NgReduxModule,
