@@ -30,7 +30,7 @@ export class BlogEpic {
   setListSearch(action$: ActionsObservable<any>, store: Store<IAppState>) {
     return action$.ofType(BlogActions.LIST_SET_SEARCH).pipe(
       debounceTime(this.setListSearchDebounce),
-      tap(({payload}) => this.matomoTracker.trackEvent('blog', 'search', payload.string)),
+      tap(({payload}) => this.matomoTracker.trackEvent('blog', 'search', store.getState().blog.list.searchValue)),
       map(() => this._actions.fetchListInternal())
     )
   }
