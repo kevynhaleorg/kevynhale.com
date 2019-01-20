@@ -37,7 +37,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     AppRoutingModule,
     MatomoModule,
     HttpModule,
-    DisqusModule.forRoot('disqus_shortname')
+    DisqusModule.forRoot('www-kevynhale-com')
   ],
   providers: [ BlogService ],
   bootstrap: [AppComponent]
