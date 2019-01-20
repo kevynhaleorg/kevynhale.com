@@ -30,7 +30,7 @@ export class BlogEpic {
   setListSearch(action$: ActionsObservable<any>, store: Store<IAppState>) {
     return action$.ofType(BlogActions.LIST_SET_SEARCH).pipe(
       debounceTime(this.setListSearchDebounce),
-      tap(({payload}) => this.matomoTracker.trackEvent('blog', 'search', store.getState().blog.list.searchValue)),
+      tap(() => this.matomoTracker.trackEvent('blog', 'search', store.getState().blog.list.searchValue)),
       map(() => this._actions.fetchListInternal())
     )
   }
@@ -49,6 +49,7 @@ export class BlogEpic {
 
   setSingleId(action$: ActionsObservable<any>, store: Store<IAppState>) {
     return action$.ofType(BlogActions.SINGLE_SET_ID).pipe(
+      tap(() => this.matomoTracker.trackEvent('blog', 'view', store.getState().blog.selected.id)),
       map(() => this._actions.fetchSingle())
     )
   }
