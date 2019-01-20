@@ -6,6 +6,9 @@ import { IAppState } from '../redux.models';
 import { BlogActions } from './blog.actions';
 import { mergeMap, map, catchError, debounceTime } from 'rxjs/operators'
 import { of } from 'rxjs';
+import { IBlogEntry } from './models';
+import * as format from 'date-fns/format'
+
 
 
 @Injectable()
@@ -36,14 +39,7 @@ export class BlogEpic {
       map((response) => {
         const results:any[] = JSON.parse(response._body)
         return this._actions.fetchListResponse(
-          results.map((result) => ({
-            id: result.id,
-            date: result.date,
-            title: result.title.rendered,
-            summary: result.excerpt.rendered,
-            body: result.content.rendered,
-            imageUrl: result._embedded['wp:featuredmedia'][0].source_url
-          })))
+          results.map((result) => (this.formatBlogEntry(result))))
       }),
       catchError( (error: Error ) => of(this._actions.fetchListError(error)))
     )
@@ -60,17 +56,21 @@ export class BlogEpic {
       mergeMap(() => this._service.fetchSingle(store.getState().blog.selected.id) ),
       map((response) => {
         const result = JSON.parse(response._body)
-        return this._actions.fetchSingleResponse({
-          id: result.id,
-          date: result.date,
-          title: result.title.rendered,
-          summary: result.excerpt.rendered,
-          body: result.content.rendered,
-          imageUrl: result._embedded['wp:featuredmedia'][0].source_url
-        })
+        return this._actions.fetchSingleResponse(this.formatBlogEntry(result))
       }),
       catchError( (error: Error ) => of(this._actions.fetchListError(error)))
     )
+  }
+
+  formatBlogEntry(result: any): IBlogEntry {
+    return {
+      id: result.id,
+      date: format(new Date(result.date),'MMMM Mo, YYYY'),
+      title: result.title.rendered,
+      summary: result.excerpt.rendered,
+      body: result.content.rendered,
+      imageUrl: result._embedded['wp:featuredmedia'][0].source_url
+    }
   }
 
 
